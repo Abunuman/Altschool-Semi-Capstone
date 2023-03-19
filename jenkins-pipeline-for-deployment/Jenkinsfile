@@ -72,15 +72,6 @@ pipeline {
             }
         }
 
-        stage("Deploy monitoring manifest to EKS") {
-            steps {
-                script {
-                    dir('manifests-monitoring') {
-                        sh "terraform init"
-                        sh "terraform apply -auto-approve"
-                    }
-                }
-            }
-        }
+    
     }
 }
