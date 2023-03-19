@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: sock-shop
+  name: sock-shop
+  annotations:
+    kubernetes.io/ingress.class: nginx 
+spec:
+  rules:
+  - host: sock-shop.maxxim.tech
+    http:
+      path:
+        backend:
+          service:
+            name: front-end
+            port:
+              number: 80
+    
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: voting-frontend
+  annotations:
+    kubernetes.io/ingress.class: nginx 
+spec:
+  rules:
+  - host: voteapp.maxxim.tech
+    http:
+      path:
+        backend:
+          service:
+            name: voting-frontend
+            port:
+              number: 80
